@@ -28,17 +28,18 @@ const App = () => {
         </Slider.Root>
         <p>Slider goes here</p>
       </div>
-      <div style={{ textAlign: 'center', marginTop: '250px'}}>
-        <p className='center' style={{fontSize: '1.5rem', fontWeight: weightValue[0], 
-            fontFamily: font
-          }}>Your text paragraph goes here</p>
+      <div style={{ textAlign: 'center', marginTop: '250px' }}>
+        <p className='center' style={{
+          fontSize: '1.5rem', fontWeight: weightValue[0],
+          fontFamily: font
+        }}>Your text paragraph goes here</p>
       </div>
       <div style={{ position: 'absolute', bottom: 100, width: '100%', display: 'flex', justifyContent: 'space-evenly' }}>
         <button onClick={() => handleFontChange('TerikFont')}>Button 1</button>
         <button onClick={() => {
           handleFontChange('Monaco')
           console.log(`Font: ${font}`)
-          }}>Button 2</button>
+        }}>Button 2</button>
         <button onClick={() => handleFontChange('Source Code Pro')}>Button 3</button>
       </div>
     </div>
