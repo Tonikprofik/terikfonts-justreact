@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import * as Slider from '@radix-ui/react-slider'
-// import './index.css';
 
 
 const App = () => {
