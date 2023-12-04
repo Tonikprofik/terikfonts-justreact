@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import * as Slider from '@radix-ui/react-slider'
+import VImage from './images/V.png';
+import EImage from './images/E.png';
+import AImage from './images/A.png';
+import EightImage from './images/8.png';
 
+function ImageButton({ src, alt, onClick }) {
+  return (
+    <button onClick={onClick} style={{ border: 'none', padding: 0, background: 'none' }}>
+      <img src={src} alt={alt} style={{ width: '50px', height: '50px' }} />
+    </button>
+  );
+}
 
 const App = () => {
   const [weightValue, setWeightSliderValue] = useState([300]); //default slider value
@@ -30,17 +41,15 @@ const App = () => {
       </div>
       <div style={{ textAlign: 'center', marginTop: '250px' }}>
         <p className='center' style={{
-          fontSize: '1.5rem', fontWeight: weightValue[0],
+          fontSize: '1.7rem', fontWeight: weightValue[0],
           fontFamily: font
         }}>Your text paragraph goes here</p>
       </div>
       <div style={{ position: 'absolute', bottom: 100, width: '100%', display: 'flex', justifyContent: 'space-evenly' }}>
-        <button onClick={() => handleFontChange('TerikFont')}>Button 1</button>
-        <button onClick={() => {
-          handleFontChange('Monaco')
-          console.log(`Font: ${font}`)
-        }}>Button 2</button>
-        <button onClick={() => handleFontChange('Source Code Pro')}>Button 3</button>
+        <ImageButton src={VImage} alt='V' onClick={() => handleFontChange('TerikFont')} />
+        <ImageButton src={EightImage} alt='8' onClick={() => handleFontChange('Monaco')} />
+        <ImageButton src={AImage} alt='A' onClick={() => handleFontChange('Source Code Pro')} />
+        <ImageButton src={EImage} alt='A' onClick={() => handleFontChange('Source Code Pro')} />
       </div>
     </div>
   );
