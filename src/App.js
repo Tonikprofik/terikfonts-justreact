@@ -8,7 +8,7 @@ import EightImage from './images/8.png';
 function ImageButton({ src, alt, onClick }) {
   return (
     <button onClick={onClick} style={{ border: 'none', padding: 0, background: 'none' }}>
-      <img src={src} alt={alt} style={{ width: '50px', height: '50px' }} />
+      <img src={src} alt={alt} style={{ width: '100px', height: '100px' }} />
     </button>
   );
 }
@@ -39,9 +39,9 @@ const App = () => {
         </Slider.Root>
         <p>Slider goes here</p>
       </div>
-      <div style={{ textAlign: 'center', marginTop: '250px' }}>
+      <div style={{ textAlign: 'center', marginTop: '350px' }}>
         <p className='center' style={{
-          fontSize: '1.7rem', fontWeight: weightValue[0],
+          fontSize: '3rem', fontWeight: weightValue[0],
           fontFamily: font
         }}>Your text paragraph goes here</p>
       </div>
