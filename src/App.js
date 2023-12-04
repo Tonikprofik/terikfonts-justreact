@@ -43,9 +43,12 @@ const App = () => {
 
         {sidebarOpen && (
           <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}
-            style={{ position: 'absolute', top: 0, left: 0, width: '400px', height: '100vh', background: 'lightgray' }}>
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', position: 'absolute', top: 0, left: 0, width: '400px', height: '100vh', background: 'lightgray' }}>
             {/* Sidebar content goes here */}
             <ImageButton src={ThreeImage} onClick={() => setSidebarOpen(false)} />
+            <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+              <p>Your text paragraph goes here</p>
+            </div>
           </div>
         )}
       </div>
