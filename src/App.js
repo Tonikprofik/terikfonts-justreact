@@ -11,8 +11,8 @@ import IconClose from './images/icon-05close.svg';
 
 function ImageButton({ src, alt, onClick }) {
   return (
-    <button onClick={onClick} style={{ border: 'none', padding: 0, background: 'none', overflow: 'hidden' }}>
-      <img src={src} alt={alt} style={{ width: '100px', height: '100px' }} />
+    <button onClick={onClick}>
+      <img src={src} alt={alt} style={{ width: '95px', height: '95px' }} />
     </button>
   );
 }
@@ -23,13 +23,16 @@ const App = () => {
   const [font, setFont] = useState('TerikFont'); //default font
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  const [selectedButton, setSelectedButton] = useState(null);
+
   const handleWeightChange = (weightValue) => {
     setWeightSliderValue(weightValue);
     console.log(`Slider weightValue: ${weightValue}`)
   };
 
-  const handleFontChange = (fontName) => {
+  const handleFontChange = (fontName, buttonName) => {
     setFont(fontName);
+    setSelectedButton(buttonName);
     console.log(`Font: ${fontName}`);
   };
   const handleFontSizeChange = (fontSizeValue) => {
@@ -50,13 +53,15 @@ const App = () => {
             }}>
             {/* Sidebar content goes here */}
             <ImageButton className="closesidebar" src={IconClose} onClick={() => setSidebarOpen(false)} />
-            <div className='contentsidebar' style={{ overflowY:'scroll', margin: '10px', 
-             flex: 1, display: 'flex', flexWrap: 'wrap', flexDirection: 'column', alignItems: 'center', justifyContent: "center", fontWeight: '100' }}>
-              <p style={{fontWeight: '100'}}>Your text paragraph goes hereYour text paragraph goes hereYour text paragraph goes 
-                hereYour text paragraph goes herYour text paragraph goes herYour text paragraph goes hereYour text paragraph goes hereYour text paragraph goes 
-                hereYour text paragraph goes herYour text paragraph goes herYour text paragraph goes hereYour text paragraph goes hereYour text paragraph goes 
+            <div className='contentsidebar' style={{
+              overflowY: 'scroll', margin: '10px',
+              flex: 1, display: 'flex', flexWrap: 'wrap', flexDirection: 'column', alignItems: 'center', justifyContent: "center", fontWeight: '100'
+            }}>
+              <p style={{ fontWeight: '100' }}>Your text paragraph goes hereYour text paragraph goes hereYour text paragraph goes
+                hereYour text paragraph goes herYour text paragraph goes herYour text paragraph goes hereYour text paragraph goes hereYour text paragraph goes
+                hereYour text paragraph goes herYour text paragraph goes herYour text paragraph goes hereYour text paragraph goes hereYour text paragraph goes
                 hereYour text paragraph goes herYour text paragraph goes her</p>
-              <p style={{marginTop: '15px'}}>Your text paragraph goes here</p>
+              <p style={{ marginTop: '15px' }}>Your text paragraph goes here</p>
             </div>
             <p style={{ alignSelf: 'center' }}>Footer</p>
           </div>
@@ -71,7 +76,7 @@ const App = () => {
             </Slider.Track>
             <Slider.Thumb className="SliderThumb" aria-label="Volume" />
           </Slider.Root>
-          <p style={{fontWeight: '100'}}>illegibility</p>
+          <p style={{ fontWeight: '100' }}>illegibility</p>
         </div>
         <div>
           <Slider.Root className="SliderRoot" value={fontSizeValue} onValueChange={handleFontSizeChange} min={20} max={95} step={1}>
@@ -81,22 +86,23 @@ const App = () => {
             <Slider.Thumb className="SliderThumb" aria-label="Volume" />
 
           </Slider.Root>
-          <p style={{fontWeight: '100'}}>size</p>
+          <p style={{ fontWeight: '100' }}>size</p>
         </div>
       </div>
-      <div style={{ textAlign: 'center', marginTop: '120px' }}>
+      <div style={{ textAlign: 'center', marginTop: '100px' }}>
         {/* TextArea */}
         <textarea className='center' style={{
           fontSize: fontSizeValue[0], fontWeight: weightValue[0],
-          fontFamily: font, marginLeft: '100px', marginRight: '100px', width: '100%', height: '400px'
+          fontFamily: font, marginLeft: '100px', marginRight: '100px', height: '400px'
         }}>Your text paragraph goes here</textarea>
       </div>
       <div style={{ position: 'absolute', bottom: 20, width: '100%', display: 'flex', justifyContent: 'space-evenly' }}>
-        <ImageButton src={IconOne} alt='V' onClick={() => handleFontChange('TerikFont')} />
-        <ImageButton src={IconTwo} alt='8' onClick={() => handleFontChange('TerikFont2')} />
-        <ImageButton src={IconThree} alt='A' onClick={() => handleFontChange('TerikFont3')} />
-        <ImageButton src={IconFour} alt='4' onClick={() => handleFontChange('TerikFont4')} />
-        <ImageButton src={IconFive} alt='5' onClick={() => handleFontChange('TerikFont5')} />
+        <ImageButton className={selectedButton === 'btn1' ? 'font-iconselected' : ''} 
+          src={IconOne} alt='V' onClick={() => handleFontChange('TerikFont', 'btn1')} />
+        <ImageButton className={selectedButton === 'btn2' ? 'font-iconselected' : ''} src={IconTwo} alt='8' onClick={() => handleFontChange('TerikFont2', 'btn2')} />
+        <ImageButton className={selectedButton === 'btn3' ? 'font-iconselected' : ''} src={IconThree} alt='A' onClick={() => handleFontChange('TerikFont3', 'btn3')} />
+        <ImageButton className={selectedButton === 'btn4' ? 'font-iconselected' : ''} src={IconFour} alt='4' onClick={() => handleFontChange('TerikFont4', 'btn4')} />
+        <ImageButton className={selectedButton === 'btn5' ? 'font-iconselected' : ''} src={IconFive} alt='5' onClick={() => handleFontChange('TerikFont5', 'btn5')} />
       </div>
     </div>
 

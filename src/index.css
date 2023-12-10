@@ -154,6 +154,8 @@ a {
 .center {
   background: inherit;
   border: none;
+  width: 900px;
+  max-width: 100%;
 }
 
 .center:focus {
@@ -161,23 +163,23 @@ a {
 }
 
 
-/* Enable hover only on non-touch devices */
-/* @media (hover: hover) and (pointer: fine) {
-  .centerText:hover {
-    background: rgba(var(--centerText-rgb), 0.1);
-    border: 1px solid rgba(var(--centerText-border-rgb), 0.15);
-  }
-
-  .centerText:hover span {
-    transform: translateX(4px);
-  }
+button {
+  border: none;
+  padding: 0;
+  background: none;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button:focus {
+  width: 115px; /* Increase the width */
+  height: 115px; /* Increase the height */
+  border: 1px solid transparent;
+  border-radius: 50%;
+  border-color: white;
 }
 
-@media (prefers-reduced-motion) {
-  .centerText:hover span {
-    transform: none;
-  }
-} */
 
 /* Mobile */
 @media (max-width: 700px) {
