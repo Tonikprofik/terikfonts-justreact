@@ -43,7 +43,8 @@ const App = () => {
 
         {sidebarOpen && (
           <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', position: 'absolute', top: 0, left: 0, width: '400px', height: '100vh', background: 'lightgray' }}>
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', 
+            position: 'absolute', top: 0, left: 0, width: '400px', height: '100vh', }}>
             {/* Sidebar content goes here */}
             <ImageButton src={ThreeImage} onClick={() => setSidebarOpen(false)} />
             <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
@@ -52,7 +53,7 @@ const App = () => {
           </div>
         )}
       </div>
-      <div style={{ display: 'flex', position: 'absolute', top: 200, left: 200 }}>
+      <div style={{ display: 'flex', position: 'absolute', top: 100, left: 100 }}>
         {/* Replace this with your slider component */}
         <div style={{ marginRight: '20px' }}>
           <Slider.Root className="SliderRoot" value={weightValue} onValueChange={handleWeightChange} max={600} step={1}>
@@ -64,7 +65,7 @@ const App = () => {
           <p>illegibility</p>
         </div>
         <div>
-          <Slider.Root className="SliderRoot" value={fontSizeValue} onValueChange={handleFontSizeChange} min={50} max={80} step={1}>
+          <Slider.Root className="SliderRoot" value={fontSizeValue} onValueChange={handleFontSizeChange} min={20} max={95} step={1}>
             <Slider.Track className="SliderTrack">
               <Slider.Range className="SliderRange" />
             </Slider.Track>
@@ -74,7 +75,8 @@ const App = () => {
           <p>size</p>
         </div>
       </div>
-      <div style={{ textAlign: 'center', marginTop: '350px' }}>
+      <div style={{ textAlign: 'center', marginTop: '120px' }}>
+        {/* TextArea */}
         <textarea className='center' style={{
           fontSize: fontSizeValue[0], fontWeight: weightValue[0],
           fontFamily: font
