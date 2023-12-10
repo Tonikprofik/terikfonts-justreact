@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import * as Slider from '@radix-ui/react-slider'
-// import VImage from './images/V.png';
-import OneImage from './images/1_icon_body-01.svg';
-import EImage from './images/E.png';
-// import AImage from './images/A.png';
-import ThreeImage from './images/3_icon_zprehazene-02.svg';
-import EightImage from './images/8.png';
+
+import IconOne from './images/icon-01.svg';
+import IconTwo from './images/icon-02.svg';
+import IconThree from './images/icon-03.svg';
+import IconFour from './images/icon-04.svg';
+import IconFive from './images/icon-05.svg';
+import IconClose from './images/icon-05close.svg';
 
 
 function ImageButton({ src, alt, onClick }) {
   return (
-    <button onClick={onClick} style={{ border: 'none', padding: 0, background: 'none', borderRadius: '50%', overflow: 'hidden' }}>
+    <button onClick={onClick} style={{ border: 'none', padding: 0, background: 'none', overflow: 'hidden' }}>
       <img src={src} alt={alt} style={{ width: '100px', height: '100px' }} />
     </button>
   );
@@ -18,7 +19,7 @@ function ImageButton({ src, alt, onClick }) {
 
 const App = () => {
   const [weightValue, setWeightSliderValue] = useState([300]); //default weight slider value
-  const [fontSizeValue, setFontSizeSliderValue] = useState([60]); //default font size slider value
+  const [fontSizeValue, setFontSizeSliderValue] = useState([90]); //default font size slider value
   const [font, setFont] = useState('TerikFont'); //default font
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -39,30 +40,38 @@ const App = () => {
   return (
     <div>
       <div>
-        <ImageButton src={ThreeImage} style={{ position: 'absolute', top: 100, left: 100 }} onClick={() => setSidebarOpen(true)} />
+        <ImageButton src={IconFour} style={{ position: 'absolute', top: 100, left: 100 }} onClick={() => setSidebarOpen(true)} />
 
         {sidebarOpen && (
           <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', 
-            position: 'absolute', top: 0, left: 0, width: '400px', height: '100vh', }}>
+            style={{
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between',
+              position: 'absolute', top: 0, left: 0, width: '400px', height: '100vh',
+            }}>
             {/* Sidebar content goes here */}
-            <ImageButton src={ThreeImage} onClick={() => setSidebarOpen(false)} />
-            <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-              <p>Your text paragraph goes here</p>
+            <ImageButton className="closesidebar" src={IconClose} onClick={() => setSidebarOpen(false)} />
+            <div className='contentsidebar' style={{ overflowY:'scroll', margin: '10px', 
+             flex: 1, display: 'flex', flexWrap: 'wrap', flexDirection: 'column', alignItems: 'center', justifyContent: "center", fontWeight: '100' }}>
+              <p style={{fontWeight: '100'}}>Your text paragraph goes hereYour text paragraph goes hereYour text paragraph goes 
+                hereYour text paragraph goes herYour text paragraph goes herYour text paragraph goes hereYour text paragraph goes hereYour text paragraph goes 
+                hereYour text paragraph goes herYour text paragraph goes herYour text paragraph goes hereYour text paragraph goes hereYour text paragraph goes 
+                hereYour text paragraph goes herYour text paragraph goes her</p>
+              <p style={{marginTop: '15px'}}>Your text paragraph goes here</p>
             </div>
+            <p style={{ alignSelf: 'center' }}>Footer</p>
           </div>
         )}
       </div>
       <div style={{ display: 'flex', position: 'absolute', top: 100, left: 100 }}>
         {/* Replace this with your slider component */}
         <div style={{ marginRight: '20px' }}>
-          <Slider.Root className="SliderRoot" value={weightValue} onValueChange={handleWeightChange} max={600} step={1}>
+          <Slider.Root className="SliderRoot" value={weightValue} onValueChange={handleWeightChange} max={599} step={1}>
             <Slider.Track className="SliderTrack">
               <Slider.Range className="SliderRange" />
             </Slider.Track>
             <Slider.Thumb className="SliderThumb" aria-label="Volume" />
           </Slider.Root>
-          <p>illegibility</p>
+          <p style={{fontWeight: '100'}}>illegibility</p>
         </div>
         <div>
           <Slider.Root className="SliderRoot" value={fontSizeValue} onValueChange={handleFontSizeChange} min={20} max={95} step={1}>
@@ -72,21 +81,22 @@ const App = () => {
             <Slider.Thumb className="SliderThumb" aria-label="Volume" />
 
           </Slider.Root>
-          <p>size</p>
+          <p style={{fontWeight: '100'}}>size</p>
         </div>
       </div>
       <div style={{ textAlign: 'center', marginTop: '120px' }}>
         {/* TextArea */}
         <textarea className='center' style={{
           fontSize: fontSizeValue[0], fontWeight: weightValue[0],
-          fontFamily: font
+          fontFamily: font, marginLeft: '100px', marginRight: '100px', width: '100%', height: '400px'
         }}>Your text paragraph goes here</textarea>
       </div>
-      <div style={{ position: 'absolute', bottom: 100, width: '100%', display: 'flex', justifyContent: 'space-evenly' }}>
-        <ImageButton src={OneImage} alt='V' onClick={() => handleFontChange('TerikFont')} />
-        <ImageButton src={EightImage} alt='8' onClick={() => handleFontChange('Monaco')} />
-        <ImageButton src={ThreeImage} alt='A' onClick={() => handleFontChange('Source Code Pro')} />
-        <ImageButton src={EImage} alt='A' onClick={() => handleFontChange('Source Code Pro')} />
+      <div style={{ position: 'absolute', bottom: 20, width: '100%', display: 'flex', justifyContent: 'space-evenly' }}>
+        <ImageButton src={IconOne} alt='V' onClick={() => handleFontChange('TerikFont')} />
+        <ImageButton src={IconTwo} alt='8' onClick={() => handleFontChange('TerikFont2')} />
+        <ImageButton src={IconThree} alt='A' onClick={() => handleFontChange('TerikFont3')} />
+        <ImageButton src={IconFour} alt='4' onClick={() => handleFontChange('TerikFont4')} />
+        <ImageButton src={IconFive} alt='5' onClick={() => handleFontChange('TerikFont5')} />
       </div>
     </div>
 
