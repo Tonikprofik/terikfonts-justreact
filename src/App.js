@@ -91,7 +91,7 @@ const App = () => {
           <p style={{ fontWeight: '100' }}>illegibility</p>
         </div>
         <div>
-          <Slider.Root className="SliderRoot" value={fontSizeValue} onValueChange={handleFontSizeChange} min={20} max={95} step={1}>
+          <Slider.Root className="SliderRoot" value={fontSizeValue} onValueChange={handleFontSizeChange} min={20} max={200} step={1}>
             <Slider.Track className="SliderTrack">
               <Slider.Range className="SliderRange" />
             </Slider.Track>
