@@ -9,6 +9,7 @@ import IconFive from './images/icon-05.svg';
 import IconClose from './images/icon-05close.svg';
 import logoRecode from './images/logo ReCode Sans-03.svg';
 import Burger from './images/burger-05.svg';
+import Anotace from './images/anotace-02.png';
 
 function ImageButton({ src, alt, onClick, className }) {
   return (
@@ -50,7 +51,7 @@ const App = () => {
           <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}
             style={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between',
-              position: 'absolute', top: 0, left: 0, width: '400px', height: '100vh',
+              position: 'fixed', top: 0, left: 0, width: '400px', height: '100vh',
             }}>
             {/* Sidebar content goes here */}
             <ImageButton className="closesidebar" src={IconClose} onClick={() => setSidebarOpen(false)} />
@@ -58,11 +59,10 @@ const App = () => {
               overflowY: 'scroll', margin: '10px',
               flex: 1, display: 'flex', flexWrap: 'wrap', flexDirection: 'column', alignItems: 'center', justifyContent: "center", fontWeight: '100'
             }}>
-              <p style={{ fontWeight: '100' }}>sky is the limit sky is the limit sky is the limit sky is the limit sky is the limit
-                sky is the limit sky is the limit sky is the limit </p>
-              <p style={{ marginTop: '15px' }}>sky is the limit </p>
+              <img src={Anotace} alt='anotace' style={{ width: '95%', height: 'auto', objectFit: 'contain', marginTop: '795px' }} />
+              
             </div>
-            <p style={{ alignSelf: 'center' }}>Footer</p>
+            
           </div>
         )}
       </div>
