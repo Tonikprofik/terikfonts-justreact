@@ -179,7 +179,14 @@ button:focus {
   border-radius: 50%;
   border-color: white;
 }
+.font-iconselected {
+  width: 115px; /* Increase the width */
+  height: 115px; /* Increase the height */
+  border: 1px solid transparent;
+  border-radius: 50%;
+  border-color: white;
 
+}
 
 /* Mobile */
 @media (max-width: 700px) {
