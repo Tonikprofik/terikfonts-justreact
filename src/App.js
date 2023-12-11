@@ -57,11 +57,9 @@ const App = () => {
               overflowY: 'scroll', margin: '10px',
               flex: 1, display: 'flex', flexWrap: 'wrap', flexDirection: 'column', alignItems: 'center', justifyContent: "center", fontWeight: '100'
             }}>
-              <p style={{ fontWeight: '100' }}>Your text paragraph goes hereYour text paragraph goes hereYour text paragraph goes
-                hereYour text paragraph goes herYour text paragraph goes herYour text paragraph goes hereYour text paragraph goes hereYour text paragraph goes
-                hereYour text paragraph goes herYour text paragraph goes herYour text paragraph goes hereYour text paragraph goes hereYour text paragraph goes
-                hereYour text paragraph goes herYour text paragraph goes her</p>
-              <p style={{ marginTop: '15px' }}>Your text paragraph goes here</p>
+              <p style={{ fontWeight: '100' }}>sky is the limit sky is the limit sky is the limit sky is the limit sky is the limit 
+                sky is the limit sky is the limit sky is the limit </p>
+              <p style={{ marginTop: '15px' }}>sky is the limit </p>
             </div>
             <p style={{ alignSelf: 'center' }}>Footer</p>
           </div>
