@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import * as Slider from '@radix-ui/react-slider'
 
 import IconOne from './images/icon-01.svg';
@@ -10,6 +10,7 @@ import IconClose from './images/icon-05close.svg';
 import logoRecode from './images/logo ReCode Sans-03.svg';
 import Burger from './images/burger-05.svg';
 import Anotace from './images/anotace-02.png';
+
 
 function ImageButton({ src, alt, onClick, className }) {
   return (
@@ -26,6 +27,20 @@ const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [selectedButton, setSelectedButton] = useState(null);
+  const sidebarRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setSidebarOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleWeightChange = (weightValue) => {
     setWeightSliderValue(weightValue);
@@ -48,21 +63,18 @@ const App = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', position: 'absolute', top: 5, left: 5, width: '100%' }}>
         <img src={Burger} style={{ width: '75px', height: '75px', }} alt='burgermenu' onClick={() => setSidebarOpen(true)} />
         {sidebarOpen && (
-          <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}
+          <div ref={sidebarRef} className={`sidebar ${sidebarOpen ? 'open' : ''}`}
             style={{
-              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
               position: 'fixed', top: 0, left: 0, width: '400px', height: '100vh',
+              overflowY: 'scroll'
             }}>
             {/* Sidebar content goes here */}
-            <ImageButton className="closesidebar" src={IconClose} onClick={() => setSidebarOpen(false)} />
-            <div className='contentsidebar' style={{
-              overflowY: 'scroll', margin: '10px',
-              flex: 1, display: 'flex', flexWrap: 'wrap', flexDirection: 'column', alignItems: 'center', justifyContent: "center", fontWeight: '100'
-            }}>
-              <img src={Anotace} alt='anotace' style={{ width: '95%', height: 'auto', objectFit: 'contain', marginTop: '795px' }} />
-              
-            </div>
-            
+
+
+            <img src={Anotace} alt='anotace' style={{ width: '95%', height: 'auto', objectFit: 'contain', marginTop: '0.5%' }} />
+
+
           </div>
         )}
       </div>
@@ -94,7 +106,7 @@ const App = () => {
         <textarea className='center' style={{
           fontSize: fontSizeValue[0], fontWeight: weightValue[0],
           fontFamily: font
-        }}>Your text paragraph goes here</textarea>
+        }}>Write whatever you want</textarea>
       </div>
       <div style={{ position: 'absolute', bottom: 20, width: '100%', display: 'flex', justifyContent: 'space-evenly' }}>
         <ImageButton className={selectedButton === 'btn1' ? 'font-iconselected' : ''}
