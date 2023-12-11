@@ -105,7 +105,7 @@ const App = () => {
         {/* TextArea */}
         <textarea className='center' style={{
           fontSize: fontSizeValue[0], fontWeight: weightValue[0],
-          fontFamily: font, width: '100%', height: '100%', resize: 'none', border: 'none', outline: 'none'
+          fontFamily: font, width: '850px', height: '100%', resize: 'none', border: 'none', outline: 'none'
         }}>Write whatever you want</textarea>
       </div>
       <div style={{ position: 'absolute', bottom: 20, width: '100%', display: 'flex', justifyContent: 'space-evenly' }}>
