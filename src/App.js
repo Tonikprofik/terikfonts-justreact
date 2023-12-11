@@ -7,12 +7,13 @@ import IconThree from './images/icon-03.svg';
 import IconFour from './images/icon-04.svg';
 import IconFive from './images/icon-05.svg';
 import IconClose from './images/icon-05close.svg';
+import logoRecode from './images/logo ReCode Sans-03.svg';
+import Burger from './images/burger-05.svg';
 
-
-function ImageButton({ src, alt, onClick }) {
+function ImageButton({ src, alt, onClick, className }) {
   return (
     <button onClick={onClick}>
-      <img src={src} alt={alt} style={{ width: '95px', height: '95px' }} />
+      <img src={src} alt={alt} className={className} style={{ width: '95px', height: '95px' }} />
     </button>
   );
 }
@@ -33,7 +34,7 @@ const App = () => {
   const handleFontChange = (fontName, buttonName) => {
     setFont(fontName);
     setSelectedButton(buttonName);
-    console.log(`Font: ${fontName}`);
+    console.log(`Font: ${fontName}, ${buttonName}`);
   };
   const handleFontSizeChange = (fontSizeValue) => {
     setFontSizeSliderValue(fontSizeValue);
@@ -42,9 +43,9 @@ const App = () => {
 
   return (
     <div>
-      <div>
-        <ImageButton src={IconFour} style={{ position: 'absolute', top: 100, left: 100 }} onClick={() => setSidebarOpen(true)} />
-
+      <img src={logoRecode} style={{ position: 'absolute', top: -75, right: 20, width: '235px', height: '235px' }} alt='LogoRecode' className='logoright' onClick={() => setSidebarOpen(false)} />
+      <div style={{ display: 'flex', justifyContent: 'space-between', position: 'absolute', top: 5, left: 5, width: '100%' }}>
+        <img src={Burger} style={{ width: '75px', height: '75px', }} alt='burgermenu' onClick={() => setSidebarOpen(true)} />
         {sidebarOpen && (
           <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}
             style={{
@@ -57,7 +58,7 @@ const App = () => {
               overflowY: 'scroll', margin: '10px',
               flex: 1, display: 'flex', flexWrap: 'wrap', flexDirection: 'column', alignItems: 'center', justifyContent: "center", fontWeight: '100'
             }}>
-              <p style={{ fontWeight: '100' }}>sky is the limit sky is the limit sky is the limit sky is the limit sky is the limit 
+              <p style={{ fontWeight: '100' }}>sky is the limit sky is the limit sky is the limit sky is the limit sky is the limit
                 sky is the limit sky is the limit sky is the limit </p>
               <p style={{ marginTop: '15px' }}>sky is the limit </p>
             </div>
@@ -65,6 +66,7 @@ const App = () => {
           </div>
         )}
       </div>
+
       <div style={{ display: 'flex', position: 'absolute', top: 100, left: 100 }}>
         {/* Replace this with your slider component */}
         <div style={{ marginRight: '20px' }}>
@@ -87,15 +89,15 @@ const App = () => {
           <p style={{ fontWeight: '100' }}>size</p>
         </div>
       </div>
-      <div style={{ textAlign: 'center', marginTop: '100px' }}>
+      <div style={{ textAlign: 'center', marginTop: '195px' }}>
         {/* TextArea */}
         <textarea className='center' style={{
           fontSize: fontSizeValue[0], fontWeight: weightValue[0],
-          fontFamily: font, marginLeft: '100px', marginRight: '100px', height: '400px'
+          fontFamily: font
         }}>Your text paragraph goes here</textarea>
       </div>
       <div style={{ position: 'absolute', bottom: 20, width: '100%', display: 'flex', justifyContent: 'space-evenly' }}>
-        <ImageButton className={selectedButton === 'btn1' ? 'font-iconselected' : ''} 
+        <ImageButton className={selectedButton === 'btn1' ? 'font-iconselected' : ''}
           src={IconOne} alt='V' onClick={() => handleFontChange('TerikFont', 'btn1')} />
         <ImageButton className={selectedButton === 'btn2' ? 'font-iconselected' : ''} src={IconTwo} alt='8' onClick={() => handleFontChange('TerikFont2', 'btn2')} />
         <ImageButton className={selectedButton === 'btn3' ? 'font-iconselected' : ''} src={IconThree} alt='A' onClick={() => handleFontChange('TerikFont3', 'btn3')} />

@@ -156,6 +156,9 @@ a {
   border: none;
   width: 900px;
   max-width: 100%;
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 400px;
 }
 
 .center:focus {
@@ -172,20 +175,22 @@ button {
   justify-content: center;
   align-items: center;
 }
-button:focus {
-  width: 115px; /* Increase the width */
-  height: 115px; /* Increase the height */
-  border: 1px solid transparent;
-  border-radius: 50%;
-  border-color: white;
-}
-.font-iconselected {
-  width: 115px; /* Increase the width */
-  height: 115px; /* Increase the height */
-  border: 1px solid transparent;
-  border-radius: 50%;
-  border-color: white;
 
+/* button:focus {
+  width: 115px; 
+  height: 115px; 
+  border: 1px solid transparent;
+  border-radius: 50%;
+  border-color: white;
+} */
+
+.font-iconselected {
+  width: 100px; /* Increase the width */
+  height: 100px; /* Increase the height */
+  border: 3px solid transparent;
+  border-radius: 50%;
+  border-color: white;
+  padding: 10px;
 }
 
 /* Mobile */
